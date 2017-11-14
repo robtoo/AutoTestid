@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import org.junit.Test;
+import static org.junit.Assert.assertThat;
+
 
 public class WeatherAPITest {
 

@@ -25,40 +25,7 @@ public class Responses {
         }
     }
 
-    
-    public  JSONObject  makeForcecastResponseJSONData(String name ) throws JSONException, IOException {
-
-        WeatherRequest weatherRequest = new WeatherRequest(); 
-        String APPID = "e10de45b13d55e166ce06f3cdddb87b8";
-        URL forecastUrl = weatherRequest.getForecastRequestURL(name, APPID);
-        Responses responses = new Responses();
-        String weatherStringData = responses.getResponseBodyFromURL(forecastUrl);
-        JSONObject weatherJsonData = responses.convertStringDataToJsonData(weatherStringData);
-        return weatherJsonData;
-    }
-
-    public  JSONObject  makeCurrentResponseJSONData(String name ) throws JSONException, IOException {
-
-        WeatherRequest weatherRequest = new WeatherRequest(); 
-        String APPID = "e10de45b13d55e166ce06f3cdddb87b8";
-        URL forecastUrl = weatherRequest.getCurrentWeatherRequestURL(name, APPID);
-        Responses responses = new Responses();
-        String weatherStringData = responses.getResponseBodyFromURL(forecastUrl);
-        JSONObject weatherJsonData = responses.convertStringDataToJsonData(weatherStringData);
-        return weatherJsonData;
-    }
-
-
-    public JSONArray  makeForecastResponseJSONArray(String name) throws JSONException, IOException {
-        JSONArray weatherJsonArray = makeForcecastResponseJSONData(name).getJSONArray("list");
-        return weatherJsonArray;
-    }
-
-    public JSONArray  makeCurrentResponseJSONArray(String name) throws JSONException, IOException {
-        JSONArray weatherJsonArray = makeCurrentResponseJSONData(name).getJSONArray("list");
-        return weatherJsonArray;
-    }
-    public JSONObject convertStringDataToJsonData (String stringdata) throws JSONException {
+      public JSONObject convertStringDataToJsonData (String stringdata) throws JSONException {
         JSONObject jsondata = new JSONObject(stringdata);
         return jsondata;
     }
