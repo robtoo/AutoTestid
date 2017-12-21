@@ -15,7 +15,7 @@ public class FileController {
     public void fileWriter(ArrayList<String> weatherdata) {
         try {
                 for (String cityName : weatherdata) {
-                java.io.FileWriter fileWriter = new java.io.FileWriter( "output.txt");
+                java.io.FileWriter fileWriter = new java.io.FileWriter(cityName.substring(0, cityName.indexOf(" "))+ ".txt");
                     fileWriter.write(cityName.toString());
                     fileWriter.flush();
                 }
